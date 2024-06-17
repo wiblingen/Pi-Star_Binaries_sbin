@@ -93,6 +93,8 @@ iptables -t mangle -A POSTROUTING -p udp --dport 62030 -j DSCP --set-dscp 46
 # Allow Outbound YSFGateway Ports
 iptables -A OUTPUT -p udp --dport 42000:43000 -j ACCEPT #               YSF Outbound Connections
 iptables -t mangle -A POSTROUTING -p udp --dport 42000:43000 -j DSCP --set-dscp 46
+iptables -A OUTPUT -p udp --dport 54003:54008 -j ACCEPT #               YSF ODSOutbound Connections
+iptables -t mangle -A POSTROUTING -p udp --dport 54003:54008 -j DSCP --set-dscp 46
 
 # Allow Outbound FCS Ports
 iptables -A OUTPUT -p udp --sport 42001 --dport 62500 -j ACCEPT #       FCS Outbound Connections
