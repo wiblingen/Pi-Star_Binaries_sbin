@@ -189,6 +189,7 @@ iptables -A INPUT -p udp --dport 40000 -j ACCEPT #              Icom G2 Callsign
 
 # Allow Inbound YSF Gateway Ports
 iptables -A INPUT -p udp --sport 42000:43000 --dport 1024:65535 -j ACCEPT # YSF Gateway Routing
+iptables -A INPUT -p udp --sport 54003:54008 --dport 1024:65535 -j ACCEPT # YSF Gateway Routing ODS
 iptables -A INPUT -p udp --sport 52000 --dport 1024:65535 -j ACCEPT #       YSF Gateway Routing
 
 # Allow Inbound P25 Gateway Ports
@@ -320,6 +321,7 @@ ip6tables -t mangle -A POSTROUTING -p udp --dport 62030 -j DSCP --set-dscp 46
 
 # Allow Outbound YSF Ports
 ip6tables -A OUTPUT -p udp --dport 42000:43000 -j ACCEPT #  YSF Networking
+ip6tables -A OUTPUT -p udp --dport 54003:54008 -j ACCEPT #  YSF Networking ODS
 ip6tables -t mangle -A POSTROUTING -p udp --dport 42000:43000 -j DSCP --set-dscp 46
 
 # Allow Outbound FCS Ports
@@ -360,6 +362,7 @@ ip6tables -A INPUT -p udp --dport 40000 -j ACCEPT #       Icom G2 Callsign Routi
 
 # Allow Inbound YSF Gateway Ports
 ip6tables -A INPUT -p udp --sport 42000:43000 --dport 1024:65535 -j ACCEPT #  YSF Gateway Routing
+ip6tables -A INPUT -p udp --sport 54003:54008 --dport 1024:65535 -j ACCEPT #  YSF Gateway Routing
 ip6tables -A INPUT -p udp --sport 52000 --dport 1024:65535 -j ACCEPT #        YSF Gateway Routing
 
 # Allow Inbound P25 Gateway Ports
